@@ -1,25 +1,34 @@
-import logo from './logo.svg';
-import './App.css';
+import React from 'react'
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
+class App extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      brand: 'Ford',
+      model: 'Mustang',
+      color: 'red',
+      year: 1964
+    };
+  }
+  changeColor = () => {
+    this.setState({ color: 'blue' });
+  }
+  render() {
+    return (
+      <div>
+        <h1>My {this.state.brand}</h1>
         <p>
-          Edit <code>src/App.js</code> and save to reload.
+          It is a {this.state.color}
+          {this.state.model}
+          from {this.state.year}.
         </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+        <button type='button' onClick={this.changeColor}>
+           Change color
+        </button>
+      </div>
+    );
+  }
 }
 
-export default App;
+
+export default App
